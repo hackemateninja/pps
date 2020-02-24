@@ -1,0 +1,39 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th class="text-center">Order Date</th>
+    <th>Age</th>
+    <th>Order number</th>
+    <th>Custom name</th>
+    <th>Type</th>
+    <th class="">Status</th>
+    <th class="text-right">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="text-center">11/06/2019</td>
+      <td>109days 11 hour and 44 minutes.</td>
+      <td>2895/(p-3454)</td>
+      <td>KEVIN   NAEGLER</td>
+      <td>Flat Rate Ground</td>
+      <td>Assigned</td>
+      <td class="td-actions text-right">
+        <button
+          type="button"
+          rel="tooltip"
+          [routerLink]="['/dashboard/order', 3454]"
+          class="btn btn-primary">
+          Fulfill
+        </button>
+        <button
+          type="button"
+          rel="tooltip"
+          [routerLink]="['/dashboard/print-order', 3454]"
+          class="btn btn-warning">
+          <i class="fas fa-print"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "pps": {
@@ -28,9 +28,24 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/now-ui-kit.css",
+              "src/assets/css/demo.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/popper.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/now-ui-kit.min.js",
+              "src/assets/js/moment.min.js",
+              "src/assets/js/bootstrap-switch.js",
+              "src/assets/js/bootstrap-tagsinput.js",
+              "src/assets/js/bootstrap-selectpicker.js",
+              "src/assets/js/jasny-bootstrap.min.js",
+              "src/assets/js/nouislider.min.js",
+              "src/assets/js/bootstrap-datetimepicker.js"
+            ]
           },
           "configurations": {
             "production": {
