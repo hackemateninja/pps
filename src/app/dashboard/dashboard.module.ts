@@ -10,6 +10,7 @@ import { OrderComponent } from './order/order.component';
 import {TableComponent} from './components/table/table.component';
 import { TableDetailsComponent } from './components/table-details/table-details.component';
 import { PrintComponent } from './print/print.component';
+import { TablePrintComponent } from './components/table-print/table-print.component';
 
 
 
@@ -21,7 +22,8 @@ import { PrintComponent } from './print/print.component';
     OrderComponent,
     TableComponent,
     TableDetailsComponent,
-    PrintComponent
+    PrintComponent,
+    TablePrintComponent
   ],
   imports: [
     CommonModule,
