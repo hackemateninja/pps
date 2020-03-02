@@ -1,4 +1,3 @@
-<app-nav></app-nav>
 <div class="main">
   <div class="container">
     <app-title title="Order details">
@@ -11,18 +10,19 @@
               </div>
               <ul>
                 <li class="text-left">
-                  <strong>Order status: </strong> SENT_TO_STORE
+                  <strong>Order status: </strong> {{orderInfo.stateAsString}}
                 </li>
                 <li class="text-left">
-                  <strong>Order #:</strong> 2895
+                  <strong>Order #:</strong> {{orderInfo.orderNumber}}
                 </li>
                 <li class="text-left">
-                  <strong>Order date: </strong> 11/06/2019 06:23 PM
+                  <strong>Order date: </strong> {{orderInfo.submittedTime | date}}
                 </li>
               </ul>
             </div>
           </div>
         </div>
+
 
         <div class="col-md-4">
           <div class="card card-pricing card-plain">
@@ -30,29 +30,30 @@
               <div class="icon icon-info">
                 <i class="now-ui-icons business_badge"></i>
               </div>
-              <ul>
+              <ul *ngFor="let info of orderInfo.shippingGroups">
                 <li class="text-left">
-                  <strong>Name: </strong> KEVIN NAEGLER
+                  <strong>Name: </strong>{{info.shippingAddress.firstName}} {{info.shippingAddress.lastName}}
                 </li>
                 <li class="text-left">
-                  <strong>Address #:</strong> 1777 NE 11TH ST COTTAGE 1
+                  <strong>Address #:</strong> {{info.shippingAddress.address1}} {{info.shippingAddress.address2}}
                 </li>
                 <li class="text-left">
-                  <strong>City State: </strong> FORT LAUDERDALE, FL
+                  <strong>City State: </strong> {{info.shippingAddress.city}}
                 </li>
                 <li class="text-left">
-                  <strong>Zip code: </strong> 33304
+                  <strong>Zip code: </strong> {{info.shippingAddress.postalCode}}
                 </li>
                 <li class="text-left">
-                  <strong>Phone: </strong> (213)200-4347
+                  <strong>Phone: </strong> {{info.shippingAddress.phoneNumber}}
                 </li>
                 <li class="text-left">
-                  <strong>Email: </strong> knaegl1@yopmail.com
+                  <strong>Email: </strong> {{info.shippingAddress.email}}
                 </li>
               </ul>
             </div>
           </div>
         </div>
+
 
         <div class="col-md-4">
           <div class="card card-pricing card-plain">
@@ -61,8 +62,8 @@
                 <i class="now-ui-icons shopping_delivery-fast"></i>
               </div>
               <ul>
-                <li class="text-left">
-                  <strong>Shipping Method : </strong> Flat Rate Ground
+                <li class="text-left" *ngFor="let info of orderInfo.shippingGroups">
+                  <strong>Shipping Method : </strong> {{info.shippingMethod}}
                 </li>
                 <li class="text-left">
                   <form>
@@ -83,11 +84,13 @@
         <div class="card-body">
           <form>
             <div class="form-group mx-sm-6">
-              <label for="exampleInputEmail1">Search</label>
-              <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search order">
+              <label for="search">Search</label>
+              <input type="number" class="form-control" id="search" aria-describedby="emailHelp" placeholder="Search order">
             </div>
           </form>
-          <app-table-details></app-table-details>
+          <div class="table-responsive">
+            <app-table-details></app-table-details>
+          </div>
           <button type="button" class="btn btn-neutral">Print packaging Slip</button>
           <button type="button" class="btn btn-neutral">Print Shipping label</button>
           <button type="button" class="btn btn-primary">Ship items</button>

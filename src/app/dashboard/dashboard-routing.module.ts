@@ -17,10 +17,10 @@ const routes: Routes = [
     path: 'store/:id', component: StoreComponent
   },
   {
-    path: 'order/:id', component: OrderComponent
+    path: 'order/:store/:id', component: OrderComponent
   },
   {
-    path: 'print-order/:id', component: PrintComponent
+    path: 'print-order/:store/:id', component: PrintComponent
   }
 ];
 

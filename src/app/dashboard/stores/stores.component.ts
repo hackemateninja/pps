@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GetStoresService} from '../../services/get-stores.service';
 
 @Component({
   selector: 'app-stores',
@@ -7,36 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StoresComponent implements OnInit {
 
-  stores = [
-    {
-      id: 91,
-      name: 'Sunrise',
-    },
-    {
-      id: 92,
-      name: 'Sunrise',
-    },
-    {
-      id: 93,
-      name: 'Sunrise',
-    },
-    {
-      id: 94,
-      name: 'Sunrise',
-    },
-    {
-      id: 95,
-      name: 'Sunrise',
-    },
-    {
-      id: 96,
-      name: 'Sunrise',
-    },
-  ];
+  stores;
 
-  constructor() { }
+  constructor(private storesList: GetStoresService) { }
 
   ngOnInit(): void {
+    this.getStores();
+  }
+
+  getStores() {
+    this.storesList.getStores()
+      .subscribe(
+        res => {
+          this.stores = res.storelist;
+        }, error => console.error(error)
+      );
   }
 
 

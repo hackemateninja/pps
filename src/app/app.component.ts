@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthService} from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pps';
-  login = false;
+
+  constructor(private authService: AuthService) {
+    this.isLoggd();
+  }
+  isLoggd() {
+    return this.authService.isLogged();
+  }
 }

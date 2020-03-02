@@ -11,6 +11,7 @@ import {TableComponent} from './components/table/table.component';
 import { TableDetailsComponent } from './components/table-details/table-details.component';
 import { PrintComponent } from './print/print.component';
 import { TablePrintComponent } from './components/table-print/table-print.component';
+import {GetStoresService} from '../services/get-stores.service';
 
 
 
@@ -29,6 +30,7 @@ import { TablePrintComponent } from './components/table-print/table-print.compon
     CommonModule,
     DashboardRoutingModule,
     SharedModule
-  ]
+  ],
+  providers: [GetStoresService]
 })
 export class DashboardModule { }
