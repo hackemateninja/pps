@@ -4,27 +4,25 @@
       title="Store details"
       description="Web order list"
     >
-      <form>
-        <div class="row">
-          <div class="col">
-            <div class="form-group ">
-              <label for="quantity">Show entries</label>
-              <select  class="form-control" id="quantity" (click)="getNumber()">
-                <option value="10">10</option>
-                <option value="25">25</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-              </select>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-group mx-sm-6">
-              <label for="exampleInputEmail1">Search</label>
-              <input type="number" class="form-control" id="exampleInputEmail1"  placeholder="Search order">
-            </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group ">
+            <label>Show entries</label>
+            <select (change)="selectChangeHandler($event)"  class="form-control">
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
           </div>
         </div>
-      </form>
+        <div class="col">
+          <div class="form-group mx-sm-6">
+            <label for="exampleInputEmail1">Search</label>
+            <input type="number" class="form-control" id="exampleInputEmail1"  placeholder="Search order">
+          </div>
+        </div>
+      </div>
     </app-title>
     <div class="row">
       <div class="card">
@@ -45,7 +43,7 @@
               </thead>
               <tbody>
               <tr *ngFor="let order of sortedOrders; index as i">
-                <td class="text-center">{{order.orderSubmittedDate.time | date}}</td>
+                <td class="text-center">{{order.orderSubmittedDate.time | date:'small'}}</td>
                 <td>{{order.orderAge}}</td>
                 <td>{{order.orderId}}/(p-{{order.orderNumber}})</td>
                 <td>{{order.firstName}} {{order.lastName}}</td>

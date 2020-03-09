@@ -12,6 +12,9 @@ export class StoreComponent implements OnInit {
   orders;
   store;
   sortedOrders = [];
+
+  selected = 10;
+
   constructor(
     private storeService: GetStoresService,
     private route: ActivatedRoute,
@@ -21,12 +24,9 @@ export class StoreComponent implements OnInit {
     this.getStore(this.getStoreId());
   }
 
-  getNumber(): number {
-    const q = document.getElementById('quantity');
-    // @ts-ignore
-    const {selectedIndex, options} = q;
-    const strUser = options[selectedIndex].value;
-    return strUser;
+  selectChangeHandler (event: any) {
+    this.selected = event.target.value;
+    this.getStore(this.getStoreId());
   }
 
   getStoreId(): number {
@@ -41,12 +41,10 @@ export class StoreComponent implements OnInit {
       .subscribe(
         res => {
           this.orders = res;
-          // tslint:disable-next-line:variable-name
-          const number = this.getNumber();
+          const number = this.selected;
           for (let i = 0; i < number; i++) {
             this.sortedOrders.push(this.orders[i]);
           }
-          console.log(this.getNumber());
         }, error => error
       );
   }
