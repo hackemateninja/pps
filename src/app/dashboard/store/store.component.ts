@@ -12,6 +12,7 @@ export class StoreComponent implements OnInit {
   orders;
   store;
   sortedOrders = [];
+  search;
 
   selected = 10;
 
@@ -22,6 +23,11 @@ export class StoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStore(this.getStoreId());
+    this.getSearch();
+  }
+
+  getSearch() {
+    console.log(this.search);
   }
 
   selectChangeHandler (event: any) {
