@@ -9,7 +9,7 @@
           <div class="col">
             <div class="form-group ">
               <label for="quantity">Show entries</label>
-              <select  class="form-control" id="quantity">
+              <select  class="form-control" id="quantity" (click)="getNumber()">
                 <option value="10">10</option>
                 <option value="25">25</option>
                 <option value="50">50</option>
@@ -44,7 +44,7 @@
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let order of orders; index as i">
+              <tr *ngFor="let order of sortedOrders; index as i">
                 <td class="text-center">{{order.orderSubmittedDate.time | date}}</td>
                 <td>{{order.orderAge}}</td>
                 <td>{{order.orderId}}/(p-{{order.orderNumber}})</td>

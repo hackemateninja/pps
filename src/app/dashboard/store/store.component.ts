@@ -11,6 +11,7 @@ export class StoreComponent implements OnInit {
 
   orders;
   store;
+  sortedOrders = [];
   constructor(
     private storeService: GetStoresService,
     private route: ActivatedRoute,
@@ -18,7 +19,6 @@ export class StoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStore(this.getStoreId());
-    this.getNumber();
   }
 
   getNumber(): number {
@@ -41,6 +41,12 @@ export class StoreComponent implements OnInit {
       .subscribe(
         res => {
           this.orders = res;
+          // tslint:disable-next-line:variable-name
+          const number = this.getNumber();
+          for (let i = 0; i < number; i++) {
+            this.sortedOrders.push(this.orders[i]);
+          }
+          console.log(this.getNumber());
         }, error => error
       );
   }
