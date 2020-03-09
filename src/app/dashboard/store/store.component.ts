@@ -26,7 +26,13 @@ export class StoreComponent implements OnInit {
 
   selectChangeHandler (event: any) {
     this.selected = event.target.value;
-    this.getStore(this.getStoreId());
+    console.log(typeof  this.selected);
+
+    this.selected ? this.sortedOrders = []: null;
+
+    for (let i = 0; i < this.selected; i++) {
+      this.sortedOrders.push(this.orders[i]);
+    }
   }
 
   getStoreId(): number {
@@ -41,8 +47,7 @@ export class StoreComponent implements OnInit {
       .subscribe(
         res => {
           this.orders = res;
-          const number = this.selected;
-          for (let i = 0; i < number; i++) {
+          for (let i = 0; i < this.selected; i++) {
             this.sortedOrders.push(this.orders[i]);
           }
         }, error => error
