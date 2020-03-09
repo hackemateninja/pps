@@ -5,9 +5,6 @@
         <div class="col-md-4">
           <div class="card card-pricing card-plain">
             <div class="card-body">
-              <div class="icon icon-info">
-                <i class="now-ui-icons shopping_box"></i>
-              </div>
               <ul>
                 <li class="text-left">
                   <strong>Order status: </strong> {{orderInfo.stateAsString}}
@@ -22,14 +19,9 @@
             </div>
           </div>
         </div>
-
-
         <div class="col-md-4">
           <div class="card card-pricing card-plain">
             <div class="card-body">
-              <div class="icon icon-info">
-                <i class="now-ui-icons business_badge"></i>
-              </div>
               <ul *ngFor="let info of orderInfo.shippingGroups">
                 <li class="text-left">
                   <strong>Name: </strong>{{info.shippingAddress.firstName}} {{info.shippingAddress.lastName}}
@@ -58,9 +50,6 @@
         <div class="col-md-4">
           <div class="card card-pricing card-plain">
             <div class="card-body">
-              <div class="icon icon-info">
-                <i class="now-ui-icons shopping_delivery-fast"></i>
-              </div>
               <ul>
                 <li class="text-left" *ngFor="let info of orderInfo.shippingGroups">
                   <strong>Shipping Method : </strong> {{info.shippingMethod}}
@@ -80,22 +69,18 @@
       </div>
     </app-title>
     <div class="row">
-      <div class="card">
-        <div class="card-body">
-          <form>
-            <div class="form-group mx-sm-6">
-              <label for="search">Search</label>
-              <input type="number" class="form-control" id="search" aria-describedby="emailHelp" placeholder="Search order">
-            </div>
-          </form>
-          <div class="table-responsive">
-            <app-table-details></app-table-details>
-          </div>
-          <button type="button" class="btn btn-neutral">Print packaging Slip</button>
-          <button type="button" class="btn btn-neutral">Print Shipping label</button>
-          <button type="button" class="btn btn-primary">Ship items</button>
+      <form>
+        <div class="form-group mx-sm-6">
+          <label for="search">Search</label>
+          <input type="number" class="form-control" id="search" aria-describedby="emailHelp" placeholder="Search order">
         </div>
+      </form>
+      <div class="table-responsive">
+        <app-table-details></app-table-details>
       </div>
+      <button type="button" class="btn btn-neutral">Print packaging Slip</button>
+      <button type="button" class="btn btn-neutral">Print Shipping label</button>
+      <button type="button" class="btn btn-primary">Ship items</button>
     </div>
   </div>
 </div>

@@ -1,113 +1,107 @@
 <div class="main">
   <div class="container">
-    <app-title title="Picking List">
-      <div class="row">
-        <div class="col-md-6">
-          <h3>PPS Order</h3>
-          <div class="card card-pricing card-plain">
-            <div class="card-body">
-              <h6 class="category">Order Summary</h6>
-              <ul>
-                <li class="text-left">
-                  <strong>Order status: </strong> SENT_TO_STORE
-                </li>
-                <li class="text-left">
-                  <strong>Order #:</strong> 2895
-                </li>
-                <li class="text-left">
-                  <strong>Order date: </strong> 11/06/2019 06:23 PM
-                </li>
-                <li class="text-left">
-                  <strong>Shipping Method : </strong> Flat Rate Ground
-                </li>
-                <li class="text-left">
-                  <img src="../assets/img/barcode.png" alt="">
-                </li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col-md-6">
-          <h3>Pick Slip</h3>
-          <div class="card card-pricing card-plain">
-            <div class="card-body">
-              <h6 class="category"> Ship To</h6>
-              <ul>
-                <li class="text-left">
-                  <strong>Name: </strong> KEVIN NAEGLER
-                </li>
-                <li class="text-left">
-                  <strong>Address #:</strong> 1777 NE 11TH ST COTTAGE 1
-                </li>
-                <li class="text-left">
-                  <strong>City State: </strong> FORT LAUDERDALE, FL
-                </li>
-                <li class="text-left">
-                  <strong>Zip code: </strong> 33304
-                </li>
-                <li class="text-left">
-                  <strong>Phone: </strong> (213)200-4347
-                </li>
-                <li class="text-left">
-                  <strong>Email: </strong> knaegl1@yopmail.com
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </app-title>
     <div class="row">
-      <div class="card">
-        <div class="card-body">
-          <form>
-            <div class="row">
-              <div class="col">
-                <div class="form-group ">
-                  <label for="exampleFormControlSelect1">Show entries</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>10</option>
-                    <option>20</option>
-                    <option>33</option>
-                    <option>40</option>
-                    <option>55</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col">
-                <div class="form-group mx-sm-6">
-                  <label for="exampleInputEmail1">Search</label>
-                  <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search order">
-                </div>
-              </div>
-            </div>
-          </form>
-          <app-table-print></app-table-print>
-          <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-end">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
+      <div class="col-md-6">
+        <h4>PPS Order</h4>
+        <div class="card card-pricing card-plain">
+          <div class="card-body">
+            <h6 class="category">Order Summary</h6>
+            <ul>
+              <li class="text-left">
+                <strong>Order status: </strong> SENT_TO_STORE
               </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
+              <li class="text-left">
+                <strong>Order #:</strong> 2895
               </li>
-              <li class="page-item ">
-                <a class="page-link" href="#">2</a>
+              <li class="text-left">
+                <strong>Order date: </strong> 11/06/2019 06:23 PM
               </li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">Next</a>
+              <li class="text-left">
+                <strong>Shipping Method : </strong> Flat Rate Ground
+              </li>
+              <li class="text-left">
+                <img src="../assets/img/barcode.png" alt="">
               </li>
             </ul>
-          </nav>
-          <button type="button" class="btn btn-primary btn-lg">
-            <i class="fas fa-print"></i>
-            Print
-          </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-6">
+        <h4>Pick Slip</h4>
+        <div class="card card-pricing card-plain">
+          <div class="card-body">
+            <h6 class="category"> Ship To</h6>
+            <ul>
+              <li class="text-left">
+                <strong>Name: </strong> KEVIN NAEGLER
+              </li>
+              <li class="text-left">
+                <strong>Address #:</strong> 1777 NE 11TH ST COTTAGE 1
+              </li>
+              <li class="text-left">
+                <strong>City State: </strong> FORT LAUDERDALE, FL
+              </li>
+              <li class="text-left">
+                <strong>Zip code: </strong> 33304
+              </li>
+              <li class="text-left">
+                <strong>Phone: </strong> (213)200-4347
+              </li>
+              <li class="text-left">
+                <strong>Email: </strong> knaegl1@yopmail.com
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
+    </div>
+    <div class="col">
+      <form>
+        <div class="row">
+          <div class="col">
+            <div class="form-group ">
+              <label for="exampleFormControlSelect1">Show entries</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>10</option>
+                <option>20</option>
+                <option>33</option>
+                <option>40</option>
+                <option>55</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group mx-sm-6">
+              <label for="exampleInputEmail1">Search</label>
+              <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search order">
+            </div>
+          </div>
+        </div>
+      </form>
+      <app-table-print></app-table-print>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item ">
+            <a class="page-link" href="#">2</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+      <button type="button" class="btn btn-primary btn-lg">
+        <i class="fas fa-print"></i>
+        Print
+      </button>
     </div>
   </div>
 </div>

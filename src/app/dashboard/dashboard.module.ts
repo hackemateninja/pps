@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import {SharedModule} from '../shared/shared.module';
 import {HomeComponent} from './home/home.component';
-import {StoresComponent} from './stores/stores.component';
 import { StoreComponent } from './store/store.component';
 import { OrderComponent } from './order/order.component';
 import {TableComponent} from './components/table/table.component';
@@ -18,7 +17,6 @@ import {GetStoresService} from '../services/get-stores.service';
 @NgModule({
   declarations: [
     HomeComponent,
-    StoresComponent,
     StoreComponent,
     OrderComponent,
     TableComponent,
