@@ -39,9 +39,7 @@ export class LoginComponent implements OnInit {
     this.typeAlert = 'success';
     this.textAlert = 'Login Success';
     this.showAlert = true;
-    setTimeout(() => {
-      this.router.navigateByUrl('/dashboard');
-    }, 1000);
+    this.router.navigateByUrl('/dashboard');
   }
   errorLogin() {
     this.typeAlert = 'danger';
