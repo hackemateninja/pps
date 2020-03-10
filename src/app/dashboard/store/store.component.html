@@ -78,7 +78,7 @@
             <ul class="pagination">
               <li
                 (click)="changePage()"
-                class="page-item-custom"
+                class="page-item"
                 *ngFor="let item of orders | paginate: { itemsPerPage: selected, currentPage: p };
                   index as idx">
                 {{item[idx]}}

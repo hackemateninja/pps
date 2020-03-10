@@ -9,7 +9,7 @@ import { ActivatedRoute, } from '@angular/router';
 })
 export class StoreComponent implements OnInit {
   loading = true;
-  orders;
+  orders = [];
   store;
   sortedOrders = [];
   search;
@@ -23,7 +23,7 @@ export class StoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStore(this.getStoreId());
-    this.handleLoading()
+    this.handleLoading();
   }
 
   handleLoading(){
@@ -38,11 +38,15 @@ export class StoreComponent implements OnInit {
     this.storeService.getStoreById(id)
       .subscribe(
         res => {
-          this.orders = res;
+          console.log(res[1])
+          res.map(x=>{
+            this.orders.push(x);
+          });
           for (let i = 0; i < this.selected; i++) {
             this.sortedOrders.push(this.orders[i]);
           }
-          return this.sortedOrders;
+          console.log(this.orders[1]);
+          return this.orders;
         }, error => error
       );
   }
@@ -57,7 +61,7 @@ export class StoreComponent implements OnInit {
     this.selected = event.target.value;
 
     this.selected ? this.sortedOrders = [] : this.selected;
-
+    this.p = 1;
     for (let i = 0; i < this.selected; i++) {
       this.sortedOrders.push(this.orders[i]);
     }
@@ -69,17 +73,18 @@ export class StoreComponent implements OnInit {
   }
 
   changePage(){
-    this.getStore(this.getStoreId());
     const sort = this.p;
-    const calc = this.selected;
+    let calc;
+    let localOrders = this.orders;
     let start;
     sort === 1 ? start = 0 : start = this.selected * sort - this.selected;
+    calc = start + parseInt(String(this.selected));
+    this.sortedOrders = [];
 
-    sort === 1 || sort >1 ? this.sortedOrders = [] : this.sortedOrders;
-
-    for (let i = this.orders[start]; i < calc; i++) {
+    for (let i = start; i < calc; i++) {
       this.sortedOrders.push(this.orders[i]);
     }
+    console.log(`start: ${start}, end : ${calc}, list: ${this.sortedOrders}`)
     return this.sortedOrders;
   }
 
