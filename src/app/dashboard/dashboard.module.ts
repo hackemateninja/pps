@@ -10,6 +10,7 @@ import { PrintComponent } from './print/print.component';
 import {GetStoresService} from '../services/get-stores.service';
 import {NgxPrintModule} from 'ngx-print';
 import {NgxBarcodeModule} from 'ngx-barcode';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -25,7 +26,8 @@ import {NgxBarcodeModule} from 'ngx-barcode';
     DashboardRoutingModule,
     SharedModule,
     NgxPrintModule,
-    NgxBarcodeModule
+    NgxBarcodeModule,
+    NgxPaginationModule
   ],
   providers: [GetStoresService]
 })
