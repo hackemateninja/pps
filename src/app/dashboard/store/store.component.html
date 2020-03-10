@@ -47,7 +47,7 @@
               </thead>
               <tbody>
               <tr *ngFor="let order of sortedOrders; index as i">
-                <td class="text-center">{{order.orderSubmittedDate.time | date:'small'}}</td>
+                <td class="text-center">{{order.orderSubmittedDate.time}}</td>
                 <td>{{order.orderAge}}</td>
                 <td>{{order.orderId}}/(p-{{order.orderNumber}})</td>
                 <td>{{order.firstName}} {{order.lastName}}</td>
