@@ -21,8 +21,8 @@
           <div class="form-group mx-sm-6">
             <label>Search</label>
             <input
-              type="number"
-              [ngModel]="search"
+              type="text"
+              (input)="getSearch($event)"
               class="form-control"
               placeholder="Search order">
           </div>

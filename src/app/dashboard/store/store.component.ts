@@ -38,14 +38,12 @@ export class StoreComponent implements OnInit {
     this.storeService.getStoreById(id)
       .subscribe(
         res => {
-          console.log(res[1])
           res.map(x=>{
             this.orders.push(x);
           });
           for (let i = 0; i < this.selected; i++) {
             this.sortedOrders.push(this.orders[i]);
           }
-          console.log(this.orders[1]);
           return this.orders;
         }, error => error
       );
@@ -68,14 +66,23 @@ export class StoreComponent implements OnInit {
     return this.sortedOrders;
   }
 
-  getSearch() {
+  getSearch($event: any) {
+    this.search = $event.target.value;
     console.log(this.search);
+    this.orders.filter((x)=>{
+      if (x.orderNumber == this.search || x.orderId == this.search || x.firstName == this.search || x.lastName == this.search){
+        this.sortedOrders.push(x);
+        return this.sortedOrders;
+      }else if(this.search.length === 0 ){
+        return this.sortedOrders;
+      }
+      return this.sortedOrders;
+    })
   }
 
   changePage(){
     const sort = this.p;
     let calc;
-    let localOrders = this.orders;
     let start;
     sort === 1 ? start = 0 : start = this.selected * sort - this.selected;
     calc = start + parseInt(String(this.selected));
@@ -84,7 +91,6 @@ export class StoreComponent implements OnInit {
     for (let i = start; i < calc; i++) {
       this.sortedOrders.push(this.orders[i]);
     }
-    console.log(`start: ${start}, end : ${calc}, list: ${this.sortedOrders}`)
     return this.sortedOrders;
   }
 
