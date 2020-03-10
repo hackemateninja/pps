@@ -10,12 +10,14 @@ import { StoreCardComponent } from './cards/store-card/store-card.component';
 import {AuthService} from '../services/auth.service';
 import {AuthGuard} from '../guards/auth.guard';
 import {TokenInterceptorService} from '../services/token-interceptor.service';
+import { LoadingComponent } from './loading/loading.component';
 
 const components = [
   NavComponent,
   TitleComponent,
   AlertComponent,
-  StoreCardComponent
+  StoreCardComponent,
+  LoadingComponent
 ];
 
 const modules = [

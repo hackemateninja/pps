@@ -9,6 +9,8 @@ import { ActivatedRoute, } from '@angular/router';
 })
 export class StoreComponent implements OnInit {
 
+  loading = true;
+
   orders;
   store;
   sortedOrders = [];
@@ -22,6 +24,11 @@ export class StoreComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if (this.sortedOrders.length === 0) {
+      setTimeout(()=>{
+        this.loading = false;
+      }, 2000)
+    }
     this.getStore(this.getStoreId());
     this.getSearch();
   }
