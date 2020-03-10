@@ -8,6 +8,8 @@ import { StoreComponent } from './store/store.component';
 import { OrderComponent } from './order/order.component';
 import { PrintComponent } from './print/print.component';
 import {GetStoresService} from '../services/get-stores.service';
+import {NgxPrintModule} from 'ngx-print';
+import {NgxBarcodeModule} from 'ngx-barcode';
 
 
 
@@ -21,7 +23,9 @@ import {GetStoresService} from '../services/get-stores.service';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    SharedModule
+    SharedModule,
+    NgxPrintModule,
+    NgxBarcodeModule
   ],
   providers: [GetStoresService]
 })
