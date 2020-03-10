@@ -24,12 +24,14 @@ export class StoreComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getStore(this.getStoreId());
+
     if (this.sortedOrders.length === 0) {
       setTimeout(()=>{
         this.loading = false;
       }, 2000)
     }
-    this.getStore(this.getStoreId());
+
     this.getSearch();
   }
 
