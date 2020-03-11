@@ -1,5 +1,12 @@
 <div class="main">
   <div class="container">
+    <nav aria-label="breadcrumb" role="navigation">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">Home</a></li>
+        <li class="breadcrumb-item"><a (click)="goBack()">Orders</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Order Details</li>
+      </ol>
+    </nav>
     <app-title title="Order details">
       <div class="row">
         <div class="col-md-4">
@@ -71,7 +78,7 @@
     <div class="column">
 
       <div class="table-responsive">
-        <!--   <table class="table">
+        <table class="table">
             <thead>
             <tr>
               <th class="text-center">UPC</th>
@@ -108,10 +115,10 @@
 
       </div>
       <div class="row justify-content-end">
-        <button type="button" class="btn btn-neutral">Print packaging Slip</button>
-        <button type="button" class="btn btn-neutral">Print Shipping label</button>
-        <button type="button" class="btn btn-primary">Ship items</button>
-      </div>-->
+        <button type="button" class="btn btn-warning"><i class="fas fa-print"></i> Print packaging Slip</button>
+        <button type="button" class="btn btn-danger"><i class="fas fa-print"></i> Print Shipping label</button>
+        <button type="button" class="btn btn-primary"><i class="fas fa-dolly-flatbed"></i> Ship items</button>
+      </div>
     </div>
   </div>
 </div>

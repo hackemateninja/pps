@@ -12,4 +12,8 @@ export class PrintComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goBack(){
+    window.history.back();
+  }
+
 }

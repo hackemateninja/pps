@@ -18,6 +18,10 @@ export class OrderComponent implements OnInit {
     this.getOrder(this.getOrderId(), this.getStoreId());
   }
 
+  goBack(){
+    window.history.back();
+  }
+
   getStoreId(): number {
     this.route.paramMap.subscribe(params => {
       this.store = params.get('store');

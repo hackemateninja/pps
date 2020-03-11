@@ -1,6 +1,10 @@
 <app-loading *ngIf="loading"></app-loading>
 <div class="main">
   <div class="container">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/dashboard">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Orders</li>
+    </ol>
     <app-title
       title="Store details"
       description="Web order list"
