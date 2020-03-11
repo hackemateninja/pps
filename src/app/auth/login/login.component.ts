@@ -22,7 +22,13 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
-    localStorage.removeItem('token');
+    this.logout();
+  }
+
+  logout(){
+    if (this.authService.isLogged()){
+      this.authService.logout();
+    }
   }
 
   onLogin(): void {
