@@ -14,19 +14,19 @@
               <h6 class="category">Order Summary</h6>
               <ul>
                 <li class="text-left">
-                  <strong>Order status: </strong> SENT_TO_STORE
+                  <strong>Order status: </strong> {{orderState}}
                 </li>
                 <li class="text-left">
-                  <strong>Order #:</strong> 2895
+                  <strong>Order #:</strong> {{orderNumber}}
                 </li>
                 <li class="text-left">
-                  <strong>Order date: </strong> 11/06/2019 06:23 PM
+                  <strong>Order date: </strong> {{submittedTime}}
+                </li>
+                <li class="text-left" *ngFor="let method of shippingGroup">
+                  <strong>Shipping Method : </strong> {{method.shippingMethod}}
                 </li>
                 <li class="text-left">
-                  <strong>Shipping Method : </strong> Flat Rate Ground
-                </li>
-                <li class="text-left">
-                  <ngx-barcode [bc-value]="2895" [bc-display-value]="true"></ngx-barcode>
+                  <ngx-barcode [bc-value]="orderNumber" [bc-display-value]="true"></ngx-barcode>
                 </li>
               </ul>
             </div>
@@ -36,25 +36,24 @@
           <h4>Pick Slip</h4>
           <div class="card card-pricing card-plain">
             <div class="card-body">
-              <h6 class="category"> Ship To</h6>
-              <ul>
+              <ul *ngFor="let info of shippingGroup">
                 <li class="text-left">
-                  <strong>Name: </strong> KEVIN NAEGLER
+                  <strong>Name: </strong>{{info.shippingAddress["firstName"]}} {{info.shippingAddress["lastName"]}}
                 </li>
                 <li class="text-left">
-                  <strong>Address #:</strong> 1777 NE 11TH ST COTTAGE 1
+                  <strong>Address #:</strong> {{info.shippingAddress["address1"]}} {{info.shippingAddress["address2"]}}
                 </li>
                 <li class="text-left">
-                  <strong>City State: </strong> FORT LAUDERDALE, FL
+                  <strong>City State: </strong> {{info.shippingAddress.city}}
                 </li>
                 <li class="text-left">
-                  <strong>Zip code: </strong> 33304
+                  <strong>Zip code: </strong> {{info.shippingAddress.postalCode}}
                 </li>
                 <li class="text-left">
-                  <strong>Phone: </strong> (213)200-4347
+                  <strong>Phone: </strong> {{info.shippingAddress["phoneNumber"]}}
                 </li>
                 <li class="text-left">
-                  <strong>Email: </strong> knaegl1@yopmail.com
+                  <strong>Email: </strong> {{info.shippingAddress["email"]}}
                 </li>
               </ul>
             </div>
@@ -76,16 +75,18 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td class="text-center">7819803043</td>
-            <td>6353</td>
-            <td>6353</td>
-            <td></td>
-            <td></td>
-            <td>PERF ULT FR DR.BFF 3.53OZ</td>
-            <td>1</td>
-            <td></td>
-          </tr>
+            <tr *ngFor="let commerceItem of commerceItems">
+              <td class="text-center">{{commerceItem.upcs}}</td>
+              <td>{{commerceItem.vpn}}</td>
+              <td>{{commerceItem.vpn}}</td>
+              <td></td>
+              <td></td>
+              <td>{{commerceItem.productDescription}}</td>
+              <td>SHP : {{commerceItem.quantity}}</td>
+              <td class="td-actions text-right">
+
+              </td>
+            </tr>
           </tbody>
         </table>
 
