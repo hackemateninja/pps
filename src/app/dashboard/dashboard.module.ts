@@ -11,6 +11,7 @@ import {GetStoresService} from '../services/get-stores.service';
 import {NgxPrintModule} from 'ngx-print';
 import {NgxBarcodeModule} from 'ngx-barcode';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ModalComponent } from './components/modal/modal.component';
 
 
 
@@ -20,6 +21,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     StoreComponent,
     OrderComponent,
     PrintComponent,
+    ModalComponent,
   ],
   imports: [
     CommonModule,
