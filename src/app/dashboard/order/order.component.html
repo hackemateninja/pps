@@ -17,13 +17,13 @@
               <div class="card-body">
                 <ul>
                   <li class="text-left">
-                    <strong>Order status: </strong> <span class="badge badge-success">{{orderInfo.stateAsString}}</span>
+                    <strong>Order status: </strong> <span class="badge badge-success">{{orderState}}</span>
                   </li>
                   <li class="text-left">
-                    <strong>Order #:</strong> {{orderInfo.orderNumber}}
+                    <strong>Order #:</strong> {{orderNumber}}
                   </li>
                   <li class="text-left">
-                    <strong>Order date: </strong> {{orderInfo.submittedTime | date}}
+                    <strong>Order date: </strong> {{submittedTime}}
                   </li>
                 </ul>
               </div>
@@ -32,12 +32,12 @@
           <div class="col-md-4">
             <div class="card card-pricing card-plain">
               <div class="card-body">
-                <ul *ngFor="let info of orderInfo.shippingGroups">
+                <ul *ngFor="let info of shippingGroup">
                   <li class="text-left">
-                    <strong>Name: </strong>{{info.shippingAddress.firstName}} {{info.shippingAddress.lastName}}
+                    <strong>Name: </strong>{{info.shippingAddress["firstName"]}} {{info.shippingAddress["lastName"]}}
                   </li>
                   <li class="text-left">
-                    <strong>Address #:</strong> {{info.shippingAddress.address1}} {{info.shippingAddress.address2}}
+                    <strong>Address #:</strong> {{info.shippingAddress["address1"]}} {{info.shippingAddress["address2"]}}
                   </li>
                   <li class="text-left">
                     <strong>City State: </strong> {{info.shippingAddress.city}}
@@ -46,10 +46,10 @@
                     <strong>Zip code: </strong> {{info.shippingAddress.postalCode}}
                   </li>
                   <li class="text-left">
-                    <strong>Phone: </strong> {{info.shippingAddress.phoneNumber}}
+                    <strong>Phone: </strong> {{info.shippingAddress["phoneNumber"]}}
                   </li>
                   <li class="text-left">
-                    <strong>Email: </strong> {{info.shippingAddress.email}}
+                    <strong>Email: </strong> {{info.shippingAddress["email"]}}
                   </li>
                 </ul>
               </div>
@@ -61,7 +61,7 @@
             <div class="card card-pricing card-plain">
               <div class="card-body">
                 <ul>
-                  <li class="text-left" *ngFor="let info of orderInfo.shippingGroups">
+                  <li class="text-left" *ngFor="let info of shippingGroup">
                     <strong>Shipping Method : </strong> {{info.shippingMethod}}
                   </li>
                   <li class="text-left">
@@ -94,7 +94,7 @@
               </tr>
             </thead>
             <tbody >
-              <tr *ngFor="let commerceItem of orderInfo.commerceItems">
+              <tr *ngFor="let commerceItem of commerceItems">
                 <td class="text-center">{{commerceItem.upcs}}</td>
                 <td>{{commerceItem.fulfillmentStore}}</td>
                 <td></td>

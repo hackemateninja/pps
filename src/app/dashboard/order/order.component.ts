@@ -10,7 +10,12 @@ import {ActivatedRoute} from '@angular/router';
 export class OrderComponent implements OnInit {
   store;
   orderId;
-  orderInfo;
+  orderInfo: any;
+  orderNumber: string;
+  submittedTime: string;
+  orderState: string;
+  shippingGroup: any;
+  commerceItems: any;
 
   constructor(private order: GetStoresService, private route: ActivatedRoute,) { }
 
@@ -39,9 +44,14 @@ export class OrderComponent implements OnInit {
     this.order.getOrderById(id, store)
       .subscribe(res => {
         this.orderInfo = res.result;
-        console.log(this.orderInfo);
+        this.orderNumber = this.orderInfo.orderNumber.toString();
+        this.orderState = this.orderInfo.stateAsString.toString();
+        this.submittedTime = this.orderInfo.submittedTime.toString();
+        this.shippingGroup =  this.orderInfo.shippingGroups;
+        this.commerceItems = this.orderInfo.commerceItems;
+        return this.orderInfo;
       }, error => {
-        console.error(error);
+        return this.orderInfo
       });
   }
 
