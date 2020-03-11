@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
 
   logout(){
     if (this.authService.isLogged()){
+      this.router.navigateByUrl('/dashboard');
+    }else {
       this.authService.logout();
     }
   }

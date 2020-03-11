@@ -16,6 +16,8 @@ export class OrderComponent implements OnInit {
   orderState: string;
   shippingGroup: any;
   commerceItems: any;
+  numberOfBoxes: string;
+  boxes = [];
 
   constructor(private order: GetStoresService, private route: ActivatedRoute,) { }
 
@@ -23,9 +25,27 @@ export class OrderComponent implements OnInit {
     this.getOrder(this.getOrderId(), this.getStoreId());
   }
 
-  goBack(){
+  goBack(): void{
     window.history.back();
   }
+
+  getNumberOfBoxes(event: any): string{
+    this.numberOfBoxes = event.target.value.toString();
+    if (this.boxes.length >= 1){
+      this.boxes = [];
+    }
+    for (let i = 0; i <= parseInt(this.numberOfBoxes); i++){
+      this.boxes.push(i);
+    }
+    return this.numberOfBoxes;
+  }
+
+  /*setNumberOfBoxes(event: any): any{
+    for (let i = 0; i <= parseInt(this.numberOfBoxes); i++){
+      this.boxes.push(i);
+    }
+    return this.boxes;
+  }*/
 
   getStoreId(): number {
     this.route.paramMap.subscribe(params => {
@@ -40,7 +60,7 @@ export class OrderComponent implements OnInit {
     });
     return this.orderId;
   }
-  getOrder(id, store) {
+  getOrder(id, store): any {
     this.order.getOrderById(id, store)
       .subscribe(res => {
         this.orderInfo = res.result;

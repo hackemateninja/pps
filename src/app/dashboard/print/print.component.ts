@@ -24,7 +24,7 @@ export class PrintComponent implements OnInit {
     this.getOrder(this.getOrderId(), this.getStoreId());
   }
 
-  goBack(){
+  goBack(): void{
     window.history.back();
   }
 
@@ -41,7 +41,7 @@ export class PrintComponent implements OnInit {
     });
     return this.orderId;
   }
-  getOrder(id, store) {
+  getOrder(id, store): any {
     this.order.getOrderById(id, store)
       .subscribe(res => {
         this.orderInfo = res.result;

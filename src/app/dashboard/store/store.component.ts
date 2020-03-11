@@ -27,7 +27,7 @@ export class StoreComponent implements OnInit {
     this.handleLoading();
   }
 
-  handleLoading(){
+  handleLoading(): void{
     if (this.sortedOrders.length === 0) {
       setTimeout(() => {
         this.loading = false;
@@ -35,7 +35,7 @@ export class StoreComponent implements OnInit {
     }
   }
 
-  getStore(id) {
+  getStore(id): any {
     this.storeService.getStoreById(id)
       .subscribe(
         res => {
@@ -56,7 +56,7 @@ export class StoreComponent implements OnInit {
     return this.store;
   }
 
-  selectChangeHandler (event: any) {
+  selectChangeHandler (event: any): any {
     this.selected = event.target.value;
 
     this.selected ? this.sortedOrders = [] : this.selected;
@@ -67,7 +67,7 @@ export class StoreComponent implements OnInit {
     return this.sortedOrders;
   }
 
-  getSearch($event: any) {
+  getSearch($event: any): any{
     this.search = $event.target.value;
     this.sortedOrders = [];
     let localOrders = this.orders
@@ -87,7 +87,7 @@ export class StoreComponent implements OnInit {
     })
   }
 
-  changePage(){
+  changePage(): any{
     const sort = this.p;
     let calc;
     let start;

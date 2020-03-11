@@ -68,7 +68,13 @@
                     <form>
                       <div class="form-group mx-sm-6">
                         <strong>Number of boxes</strong>
-                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search order">
+                        <input
+                          (input)="getNumberOfBoxes($event)"
+                          type="number"
+                          class="form-control"
+                          aria-describedby="emailHelp"
+                          placeholder="Number of boxes"
+                        >
                       </div>
                     </form>
                   </li>
@@ -84,7 +90,7 @@
             <thead>
               <tr >
                 <th class="text-center">UPC</th>
-                <th>Stores</th>
+                <th>Store</th>
                 <th>Color</th>
                 <th>size</th>
                 <th>Description</th>
@@ -103,12 +109,15 @@
                 <td>SHP : {{commerceItem.quantity}}</td>
                 <td class="td-actions text-right">
                   <select class="form-control form-control-sm">
-                    <option>Small select</option>
+                    <option>Select your option</option>
+                    <option>Shipped</option>
+                    <option>No stock</option>
                   </select>
                 </td>
                 <td class="td-actions text-right">
                   <select class="form-control form-control-sm">
-                    <option>Small select</option>
+                    <option>Select box</option>
+                    <option *ngFor="let box of boxes">{{box}}</option>
                   </select>
                 </td>
               </tr>
