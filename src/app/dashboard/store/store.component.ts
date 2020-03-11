@@ -15,6 +15,7 @@ export class StoreComponent implements OnInit {
   search;
   p;
   selected = 10;
+  showCounter =  true;
 
   constructor(
     private storeService: GetStoresService,
@@ -68,13 +69,19 @@ export class StoreComponent implements OnInit {
 
   getSearch($event: any) {
     this.search = $event.target.value;
-    console.log(this.search);
-    this.orders.filter((x)=>{
-      if (x.orderNumber == this.search || x.orderId == this.search || x.firstName == this.search || x.lastName == this.search){
+    this.sortedOrders = [];
+    let localOrders = this.orders
+    localOrders.filter(x =>{
+      if (this.search === x.orderNumber || this.search === x.orderId || this.search.toUpperCase() === x.firstName || this.search.toUpperCase() === x.lastName ){
         this.sortedOrders.push(x);
-        return this.sortedOrders;
-      }else if(this.search.length === 0 ){
-        return this.sortedOrders;
+        this.showCounter = false;
+      }else if(this.search.length === 0){
+        this.p = 1;
+        this.showCounter = true;
+        this.sortedOrders = [];
+        for (let i = 0; i < this.selected; i++) {
+          this.sortedOrders.push(this.orders[i]);
+        }
       }
       return this.sortedOrders;
     })
@@ -90,7 +97,7 @@ export class StoreComponent implements OnInit {
 
     for (let i = start; i < calc; i++) {
       this.sortedOrders.push(this.orders[i]);
-    }
+    };
     return this.sortedOrders;
   }
 

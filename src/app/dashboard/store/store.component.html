@@ -74,7 +74,7 @@
             </table>
           </div>
 
-          <nav class="pagination-custom">
+          <nav class="pagination-custom" *ngIf="showCounter">
             <ul class="pagination">
               <li
                 (click)="changePage()"
