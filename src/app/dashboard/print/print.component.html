@@ -5,97 +5,96 @@
       <li class="breadcrumb-item"><a (click)="goBack()">Orders</a></li>
       <li class="breadcrumb-item active" aria-current="page">Print</li>
     </ol>
-    <div class="row">
-      <div class="col-md-6">
-        <h4>PPS Order</h4>
-        <div class="card card-pricing card-plain">
-          <div class="card-body">
-            <h6 class="category">Order Summary</h6>
-            <ul>
-              <li class="text-left">
-                <strong>Order status: </strong> SENT_TO_STORE
-              </li>
-              <li class="text-left">
-                <strong>Order #:</strong> 2895
-              </li>
-              <li class="text-left">
-                <strong>Order date: </strong> 11/06/2019 06:23 PM
-              </li>
-              <li class="text-left">
-                <strong>Shipping Method : </strong> Flat Rate Ground
-              </li>
-              <li class="text-left">
-                <ngx-barcode [bc-value]="2895" [bc-display-value]="true"></ngx-barcode>
-              </li>
-
-            </ul>
+    <div id="print-section">
+      <div class="row">
+        <div class="col-md-6">
+          <h4>PPS Order</h4>
+          <div class="card card-pricing card-plain">
+            <div class="card-body">
+              <h6 class="category">Order Summary</h6>
+              <ul>
+                <li class="text-left">
+                  <strong>Order status: </strong> SENT_TO_STORE
+                </li>
+                <li class="text-left">
+                  <strong>Order #:</strong> 2895
+                </li>
+                <li class="text-left">
+                  <strong>Order date: </strong> 11/06/2019 06:23 PM
+                </li>
+                <li class="text-left">
+                  <strong>Shipping Method : </strong> Flat Rate Ground
+                </li>
+                <li class="text-left">
+                  <ngx-barcode [bc-value]="2895" [bc-display-value]="true"></ngx-barcode>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-
+        <div class="col-md-6">
+          <h4>Pick Slip</h4>
+          <div class="card card-pricing card-plain">
+            <div class="card-body">
+              <h6 class="category"> Ship To</h6>
+              <ul>
+                <li class="text-left">
+                  <strong>Name: </strong> KEVIN NAEGLER
+                </li>
+                <li class="text-left">
+                  <strong>Address #:</strong> 1777 NE 11TH ST COTTAGE 1
+                </li>
+                <li class="text-left">
+                  <strong>City State: </strong> FORT LAUDERDALE, FL
+                </li>
+                <li class="text-left">
+                  <strong>Zip code: </strong> 33304
+                </li>
+                <li class="text-left">
+                  <strong>Phone: </strong> (213)200-4347
+                </li>
+                <li class="text-left">
+                  <strong>Email: </strong> knaegl1@yopmail.com
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="col">
+        <table class="table">
+          <thead>
+          <tr>
+            <th class="text-center">UPC</th>
+            <th>Sku</th>
+            <th>VPN</th>
+            <th>Color</th>
+            <th>Size</th>
+            <th class="">Description</th>
+            <th class="">Qty</th>
+            <th class="">Box #</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="text-center">7819803043</td>
+            <td>6353</td>
+            <td>6353</td>
+            <td></td>
+            <td></td>
+            <td>PERF ULT FR DR.BFF 3.53OZ</td>
+            <td>1</td>
+            <td></td>
+          </tr>
+          </tbody>
+        </table>
 
-      <div class="col-md-6">
-        <h4>Pick Slip</h4>
-        <div class="card card-pricing card-plain">
-          <div class="card-body">
-            <h6 class="category"> Ship To</h6>
-            <ul>
-              <li class="text-left">
-                <strong>Name: </strong> KEVIN NAEGLER
-              </li>
-              <li class="text-left">
-                <strong>Address #:</strong> 1777 NE 11TH ST COTTAGE 1
-              </li>
-              <li class="text-left">
-                <strong>City State: </strong> FORT LAUDERDALE, FL
-              </li>
-              <li class="text-left">
-                <strong>Zip code: </strong> 33304
-              </li>
-              <li class="text-left">
-                <strong>Phone: </strong> (213)200-4347
-              </li>
-              <li class="text-left">
-                <strong>Email: </strong> knaegl1@yopmail.com
-              </li>
-            </ul>
-          </div>
-        </div>
+
       </div>
     </div>
     <div class="col">
-
-
-
-     <table class="table">
-        <thead>
-        <tr>
-          <th class="text-center">UPC</th>
-          <th>Sku</th>
-          <th>VPN</th>
-          <th>Color</th>
-          <th>Size</th>
-          <th class="">Description</th>
-          <th class="">Qty</th>
-          <th class="">Box #</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td class="text-center">7819803043</td>
-          <td>6353</td>
-          <td>6353</td>
-          <td></td>
-          <td></td>
-          <td>PERF ULT FR DR.BFF 3.53OZ</td>
-          <td>1</td>
-          <td></td>
-        </tr>
-        </tbody>
-      </table>
-
       <div class="row justify-content-end">
-        <button type="button" class="btn btn-primary ">
+        <button type="button" class="btn btn-primary" printSectionId="print-section" ngxPrint>
           <i class="fas fa-print"></i>
           Print
         </button>
