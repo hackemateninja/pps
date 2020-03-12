@@ -108,15 +108,15 @@
                 <td>{{commerceItem.productDescription}}</td>
                 <td>SHP : {{commerceItem.quantity}}</td>
                 <td class="td-actions text-right">
-                  <select class="form-control form-control-sm">
+                  <select (click)="getItemStatus($event)" class="form-control form-control-sm">
                     <option>Select your option</option>
-                    <option>Shipped</option>
-                    <option>No stock</option>
+                    <option value="1">Shipped</option>
+                    <option value="2">No stock</option>
                   </select>
                 </td>
                 <td class="td-actions text-right">
                   <select class="form-control form-control-sm">
-                    <option>Select box</option>
+                    <option *ngIf="boxes.length===0">Select box</option>
                     <option *ngFor="let box of boxes">{{box}}</option>
                   </select>
                 </td>
