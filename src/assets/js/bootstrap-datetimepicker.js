@@ -310,7 +310,7 @@
         if (!use24Hours) {
           topRow.append($('<td>').addClass('separator'));
           middleRow.append($('<td>')
-            .append($('<button>').addClass('btn btn-outline-primary btn-round').attr({
+            .append($('<button>').addClass('btn btn-outline-info btn-round').attr({
               'data-action': 'togglePeriod',
               tabindex: '-1',
               'title': options.tooltips.togglePeriod

@@ -51,7 +51,7 @@
               </thead>
               <tbody>
               <tr *ngFor="let order of sortedOrders; index as i">
-                <td class="text-center">{{order.orderSubmittedDate.time}}</td>
+                <td class="text-center">{{order.orderSubmittedDate.time * 1000 | date:'MM/dd/yyyy'}}</td>
                 <td>{{order.orderAge}}</td>
                 <td>{{order.orderId}}/(p-{{order.orderNumber}})</td>
                 <td>{{order.firstName}} {{order.lastName}}</td>
@@ -62,7 +62,7 @@
                     type="button"
                     rel="tooltip"
                     [routerLink]="['/dashboard/order',store ,order.orderId]"
-                    class="btn btn-primary">
+                    class="btn btn-info">
                     <i class="fas fa-eye"></i>
                   </button>
                   <button
