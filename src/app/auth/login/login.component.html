@@ -1,4 +1,4 @@
-<div class="page-header header-filter" filter-color="blue">
+<div class="page-header header-filter" filter-color="black">
   <div class="page-header-image" style="background-image:url(../assets/img/bg21.jpg)"></div>
   <app-alert
     *ngIf="showAlert"
@@ -32,6 +32,15 @@
             </div>
             <div class="card-footer text-center">
               <button (click)="onLogin()" class="login-input btn btn-info btn-round btn-lg btn-block">Login</button>
+              <div class="">
+                <a class="text-center text-white" routerLink="/auth/register">Don´t have an account yet? register here</a>.
+              </div>
+              <br>
+              <strong> or </strong>
+              <br>
+              <div class="">
+                <a class="text-center text-white" routerLink="/auth/forgot">Forgot your password?</a>.
+              </div>
             </div>
           </form>
         </div>

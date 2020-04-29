@@ -1,0 +1,38 @@
+<div class="page-header header-filter" filter-color="blue">
+  <div class="page-header-image" style="background-image:url(../assets/img/bg30.jpg)"></div>
+  <!--<app-alert
+    *ngIf="showAlert"
+    [type]="typeAlert"
+    [text]="textAlert"
+  >
+  </app-alert>-->
+  <div class="content">
+    <div class="container">
+      <div class="col-md-5 ml-auto mr-auto">
+        <div class="card card-login card-plain">
+          <form  class="form">
+            <div class="card-header text-center">
+              <div class="logo-container">
+                <img src="../assets/img/ppslogo.png" alt="">
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="input-group no-border input-lg">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="login-icons now-ui-icons users_circle-08"></i></span>
+                </div>
+                <input type="text" name="username"  required class="form-control login-input" placeholder="Email">
+              </div>
+            </div>
+            <div class="card-footer text-center">
+              <button  class="login-input btn btn-info btn-round btn-lg btn-block">Reset password</button>
+              <div class="">
+                <a class="text-center text-white" routerLink="/auth/login"><strong>Login now</strong></a>.
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
