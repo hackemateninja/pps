@@ -1,10 +1,16 @@
 <div class="main">
   <div class="container">
-    <app-title
-      title="PPS Home"
-      description="Welcome to PPS dashboard, this is a resume of all your stores"
-    >
-    </app-title>
+    <div class="title-container">
+      <app-title
+        title="PPS Home"
+        description="Welcome to PPS dashboard, this is a resume of all your stores"
+      >
+      </app-title>
+      <a class="btn btn-info" routerLink="/dashboard/print-all-picking-slip">
+        <i class="fas fa-print"></i>
+        Print all picking slips
+      </a>
+    </div>
     <div class="row">
       <div class="col-md-4" *ngFor="let store of stores">
         <app-store-card title={{store.name}} id={{store.id}}></app-store-card>
