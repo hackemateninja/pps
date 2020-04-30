@@ -4,7 +4,6 @@ import {HomeComponent} from './home/home.component';
 import {StoreComponent} from './store/store.component';
 import {OrderComponent} from './order/order.component';
 import {PrintComponent} from './print/print.component';
-import {PrintPickSlipComponent} from './print-pick-slip/print-pick-slip.component';
 
 const routes: Routes = [
   {
@@ -20,8 +19,8 @@ const routes: Routes = [
     path: 'print-order/:store/:id', component: PrintComponent
   },
   {
-    path: 'print-all-picking-slip', component: PrintPickSlipComponent
-  }
+    path: 'print-all-picking-slip', component: PrintComponent
+  },
 ];
 
 @NgModule({

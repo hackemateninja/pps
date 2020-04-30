@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PrintPickSlipComponent } from './print-pick-slip.component';
+import { TitleContainerComponent } from './title-container.component';
 
-describe('PrintPickSlipComponent', () => {
-  let component: PrintPickSlipComponent;
-  let fixture: ComponentFixture<PrintPickSlipComponent>;
+describe('TitleContainerComponent', () => {
+  let component: TitleContainerComponent;
+  let fixture: ComponentFixture<TitleContainerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PrintPickSlipComponent ]
+      declarations: [ TitleContainerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PrintPickSlipComponent);
+    fixture = TestBed.createComponent(TitleContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
