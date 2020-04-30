@@ -13,6 +13,7 @@ import {NgxBarcodeModule} from 'ngx-barcode';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ModalComponent } from './components/modal/modal.component';
 import { PrintPickSlipComponent } from './print-pick-slip/print-pick-slip.component';
+import { PrintorderlabelComponent } from './components/printorderlabel/printorderlabel.component';
 
 
 
@@ -24,6 +25,7 @@ import { PrintPickSlipComponent } from './print-pick-slip/print-pick-slip.compon
     PrintComponent,
     ModalComponent,
     PrintPickSlipComponent,
+    PrintorderlabelComponent,
   ],
   imports: [
     CommonModule,

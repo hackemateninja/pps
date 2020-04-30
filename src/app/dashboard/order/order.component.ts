@@ -20,11 +20,15 @@ export class OrderComponent implements OnInit {
   boxes = [];
   itemStatus: string;
 
-  constructor(private order: GetStoresService, private route: ActivatedRoute,) { }
+  constructor(
+    private order: GetStoresService,
+    private route: ActivatedRoute,
+    ) { }
 
   ngOnInit(): void {
     this.getOrder(this.getOrderId(), this.getStoreId());
   }
+
 
   goBack(): void{
     window.history.back();

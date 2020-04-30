@@ -5,7 +5,7 @@
       <li class="breadcrumb-item"><a (click)="goBack()">Orders</a></li>
       <li class="breadcrumb-item active" aria-current="page">Print</li>
     </ol>
-    <div id="print-section">
+    <div id="print-section" *ngIf="showContent">
       <div class="row">
         <div class="col-md-6">
           <h4>PPS Order</h4>
@@ -95,7 +95,7 @@
     </div>
     <div class="col">
       <div class="row justify-content-end">
-        <button type="button" class="btn btn-info" printSectionId="print-section" ngxPrint>
+        <button type="button" class="btn btn-info" [useExistingCss]="true" printSectionId="print-section" ngxPrint>
           <i class="fas fa-print"></i>
           Print
         </button>

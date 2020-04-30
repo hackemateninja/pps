@@ -18,10 +18,16 @@ export class PrintComponent implements OnInit {
   shippingGroup: any;
   commerceItems: any;
 
+  showContent = true;
+
   constructor(private order: GetStoresService, private route: ActivatedRoute,) { }
 
   ngOnInit(): void {
     this.getOrder(this.getOrderId(), this.getStoreId());
+  }
+
+  handleShow(): void{
+    this.showContent = true;
   }
 
   goBack(): void{

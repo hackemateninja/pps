@@ -1,0 +1,75 @@
+<div id="print-section">
+  <div class="print-header-section">
+    <img [src]="sanitizer.bypassSecurityTrustUrl('/assets/img/petsupermarketlogo.png')" alt="">
+    <div>
+      <strong>Web: </strong> <label>www.petsupermarket.com</label><br>
+      <strong>Phone: </strong> <label> 1-866-434-1990</label><br>
+      <strong>Email: </strong> <label>customerservice@petsupermarket.com</label>
+    </div>
+  </div>
+
+  <app-title title="Order details">
+    <div class="row">
+      <div class="col-md-4">
+
+        <div class="card card-pricing card-plain">
+          <div class="card-body">
+            <ul>
+              <li class="text-left">
+                <strong>Order status: </strong> <span class="badge badge-success">{{orderState}}</span>
+              </li>
+              <li class="text-left">
+                <strong>Order #:</strong> {{orderNumber}}
+              </li>
+              <li class="text-left">
+                <strong>Order date: </strong> {{submittedTime}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-pricing card-plain">
+          <div class="card-body">
+            <ul *ngFor="let info of shippingGroup">
+              <li class="text-left">
+                <strong>Name: </strong>{{info.shippingAddress["firstName"]}} {{info.shippingAddress["lastName"]}}
+              </li>
+              <li class="text-left">
+                <strong>Address #:</strong> {{info.shippingAddress["address1"]}} {{info.shippingAddress["address2"]}}
+              </li>
+              <li class="text-left">
+                <strong>City State: </strong> {{info.shippingAddress.city}}
+              </li>
+              <li class="text-left">
+                <strong>Zip code: </strong> {{info.shippingAddress.postalCode}}
+              </li>
+              <li class="text-left">
+                <strong>Phone: </strong> {{info.shippingAddress["phoneNumber"]}}
+              </li>
+              <li class="text-left">
+                <strong>Email: </strong> {{info.shippingAddress["email"]}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card card-pricing card-plain">
+          <div class="card-body">
+            <ul>
+              <li class="text-left" *ngFor="let info of shippingGroup">
+                <strong>Shipping Method : </strong> {{info.shippingMethod}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h4>NEED TO RETURN ITEMS?</h4>
+    <p>
+      For return items which were received in defective or damaged condition, please call customer service at 1-866-434-1990 for information on how to return the item.
+    </p>
+  </app-title>
+</div>

@@ -9,121 +9,127 @@
       </ol>
     </nav>
 
-    <div id="print-section">
-      <app-title title="Order details">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card card-pricing card-plain">
-              <div class="card-body">
-                <ul>
-                  <li class="text-left">
-                    <strong>Order status: </strong> <span class="badge badge-success">{{orderState}}</span>
-                  </li>
-                  <li class="text-left">
-                    <strong>Order #:</strong> {{orderNumber}}
-                  </li>
-                  <li class="text-left">
-                    <strong>Order date: </strong> {{submittedTime}}
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card card-pricing card-plain">
-              <div class="card-body">
-                <ul *ngFor="let info of shippingGroup">
-                  <li class="text-left">
-                    <strong>Name: </strong>{{info.shippingAddress["firstName"]}} {{info.shippingAddress["lastName"]}}
-                  </li>
-                  <li class="text-left">
-                    <strong>Address #:</strong> {{info.shippingAddress["address1"]}} {{info.shippingAddress["address2"]}}
-                  </li>
-                  <li class="text-left">
-                    <strong>City State: </strong> {{info.shippingAddress.city}}
-                  </li>
-                  <li class="text-left">
-                    <strong>Zip code: </strong> {{info.shippingAddress.postalCode}}
-                  </li>
-                  <li class="text-left">
-                    <strong>Phone: </strong> {{info.shippingAddress["phoneNumber"]}}
-                  </li>
-                  <li class="text-left">
-                    <strong>Email: </strong> {{info.shippingAddress["email"]}}
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+    <app-printorderlabel
+      [orderInfo]="orderInfo"
+      [orderNumber]="orderNumber"
+      [orderState]="orderState"
+      [shippingGroup]="shippingGroup"
+      [submittedTime]="submittedTime"
+    ></app-printorderlabel>
 
-
-          <div class="col-md-4">
-            <div class="card card-pricing card-plain">
-              <div class="card-body">
-                <ul>
-                  <li class="text-left" *ngFor="let info of shippingGroup">
-                    <strong>Shipping Method : </strong> {{info.shippingMethod}}
-                  </li>
-                  <li class="text-left">
-                    <form>
-                      <div class="form-group mx-sm-6">
-                        <strong>Number of boxes</strong>
-                        <input
-                          (input)="getNumberOfBoxes($event)"
-                          type="number"
-                          class="form-control"
-                          aria-describedby="emailHelp"
-                          placeholder="Number of boxes"
-                        >
-                      </div>
-                    </form>
-                  </li>
-                </ul>
-              </div>
+    <app-title title="Order details">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card card-pricing card-plain">
+            <div class="card-body">
+              <ul>
+                <li class="text-left">
+                  <strong>Order status: </strong> <span class="badge badge-success">{{orderState}}</span>
+                </li>
+                <li class="text-left">
+                  <strong>Order #:</strong> {{orderNumber}}
+                </li>
+                <li class="text-left">
+                  <strong>Order date: </strong> {{submittedTime}}
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </app-title>
-      <div class="col">
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <tr >
-                <th class="text-center">UPC</th>
-                <th>Store</th>
-                <th>Color</th>
-                <th>size</th>
-                <th>Description</th>
-                <th class="">Qty</th>
-                <th class="text-right">Item status</th>
-                <th class="text-right">Box #</th>
-              </tr>
-            </thead>
-            <tbody >
-              <tr *ngFor="let commerceItem of commerceItems">
-                <td class="text-center">{{commerceItem.upcs}}</td>
-                <td>{{commerceItem.fulfillmentStore}}</td>
-                <td></td>
-                <td></td>
-                <td>{{commerceItem.productDescription}}</td>
-                <td>SHP : {{commerceItem.quantity}}</td>
-                <td class="td-actions text-right">
-                  <select (click)="getItemStatus($event)" class="form-control form-control-sm">
-                    <option>Select your option</option>
-                    <option value="1">Shipped</option>
-                    <option value="2">No stock</option>
-                  </select>
-                </td>
-                <td class="td-actions text-right">
-                  <select class="form-control form-control-sm">
-                    <option *ngIf="boxes.length===0">Select box</option>
-                    <option *ngFor="let box of boxes">{{box}}</option>
-                  </select>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="col-md-4">
+          <div class="card card-pricing card-plain">
+            <div class="card-body">
+              <ul *ngFor="let info of shippingGroup">
+                <li class="text-left">
+                  <strong>Name: </strong>{{info.shippingAddress["firstName"]}} {{info.shippingAddress["lastName"]}}
+                </li>
+                <li class="text-left">
+                  <strong>Address #:</strong> {{info.shippingAddress["address1"]}} {{info.shippingAddress["address2"]}}
+                </li>
+                <li class="text-left">
+                  <strong>City State: </strong> {{info.shippingAddress.city}}
+                </li>
+                <li class="text-left">
+                  <strong>Zip code: </strong> {{info.shippingAddress.postalCode}}
+                </li>
+                <li class="text-left">
+                  <strong>Phone: </strong> {{info.shippingAddress["phoneNumber"]}}
+                </li>
+                <li class="text-left">
+                  <strong>Email: </strong> {{info.shippingAddress["email"]}}
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
+
+
+        <div class="col-md-4">
+          <div class="card card-pricing card-plain">
+            <div class="card-body">
+              <ul>
+                <li class="text-left" *ngFor="let info of shippingGroup">
+                  <strong>Shipping Method : </strong> {{info.shippingMethod}}
+                </li>
+                <li class="text-left">
+                  <form>
+                    <div class="form-group mx-sm-6">
+                      <strong>Number of boxes</strong>
+                      <input
+                        (input)="getNumberOfBoxes($event)"
+                        type="number"
+                        class="form-control"
+                        aria-describedby="emailHelp"
+                        placeholder="Number of boxes"
+                      >
+                    </div>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-title>
+    <div class="col">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+          <tr >
+            <th class="text-center">UPC</th>
+            <th>Store</th>
+            <th>Color</th>
+            <th>size</th>
+            <th>Description</th>
+            <th class="">Qty</th>
+            <th class="text-right">Item status</th>
+            <th class="text-right">Box #</th>
+          </tr>
+          </thead>
+          <tbody >
+          <tr *ngFor="let commerceItem of commerceItems">
+            <td class="text-center">{{commerceItem.upcs}}</td>
+            <td>{{commerceItem.fulfillmentStore}}</td>
+            <td></td>
+            <td></td>
+            <td>{{commerceItem.productDescription}}</td>
+            <td>SHP : {{commerceItem.quantity}}</td>
+            <td class="td-actions text-right">
+              <select (click)="getItemStatus($event)" class="form-control form-control-sm">
+                <option>Select your option</option>
+                <option value="1">Shipped</option>
+                <option value="2">No stock</option>
+              </select>
+            </td>
+            <td class="td-actions text-right">
+              <select class="form-control form-control-sm">
+                <option *ngIf="boxes.length===0">Select box</option>
+                <option *ngFor="let box of boxes">{{box}}</option>
+              </select>
+            </td>
+          </tr>
+          </tbody>
+        </table>
       </div>
     </div>
     <div class="col">
@@ -132,6 +138,7 @@
           type="button"
           class="btn btn-warning"
           printSectionId="print-section"
+          [useExistingCss]="true"
           ngxPrint>
           <i class="fas fa-print"></i>
           Print packaging Slip
