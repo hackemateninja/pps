@@ -1,1 +1,17 @@
-
+.content-number-boxes{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.add-box-button{
+  background: #00bbff;
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-left: 8px;
+}

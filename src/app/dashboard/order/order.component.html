@@ -91,6 +91,7 @@
         </div>
       </div>
     </app-title>
+
     <div class="col">
       <div class="table-responsive">
         <table class="table">
@@ -103,7 +104,7 @@
             <th>Description</th>
             <th class="">Qty</th>
             <th class="text-right">Item status</th>
-            <th class="text-right">Box #</th>
+            <th class="text-center">Box #</th>
           </tr>
           </thead>
           <tbody >
@@ -121,11 +122,14 @@
                 <option value="2">No stock</option>
               </select>
             </td>
-            <td class="td-actions text-right">
-              <select class="form-control form-control-sm">
+            <td class="td-actions text-right content-number-boxes">
+              <select class="form-control form-control-sm" *ngFor="let boxSelect of boxesSelect; index as idx">
                 <option *ngIf="boxes.length===0">Select box</option>
-                <option *ngFor="let box of boxes">{{box}}</option>
+                <option *ngFor="let box of boxes; index as idx">{{idx+1}}</option>
               </select>
+              <button class="add-box-button">
+                <i class="fas fa-plus"></i>
+              </button>
             </td>
           </tr>
           </tbody>
@@ -136,16 +140,16 @@
       <div class="row justify-content-end">
         <button
           type="button"
-          class="btn btn-warning"
-          printSectionId="print-section"
-          [useExistingCss]="true"
-          ngxPrint>
+          class="btn btn-warning">
           <i class="fas fa-print"></i>
           Print packaging Slip
         </button>
         <button
           type="button"
-          class="btn btn-danger">
+          class="btn btn-danger"
+          printSectionId="print-section"
+          [useExistingCss]="true"
+          ngxPrint>
           <i class="fas fa-print"></i>
           Print Shipping label
         </button>

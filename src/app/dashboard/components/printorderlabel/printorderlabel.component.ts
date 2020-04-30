@@ -14,7 +14,7 @@ export class PrintorderlabelComponent implements OnInit {
   @Input() orderState: string;
   @Input() shippingGroup: any;
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(public sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
   }

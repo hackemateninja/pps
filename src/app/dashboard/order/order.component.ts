@@ -18,6 +18,7 @@ export class OrderComponent implements OnInit {
   commerceItems: any;
   numberOfBoxes: string;
   boxes = [];
+  boxesSelect = [1];
   itemStatus: string;
 
   constructor(
@@ -34,15 +35,9 @@ export class OrderComponent implements OnInit {
     window.history.back();
   }
 
-  getNumberOfBoxes(event: any): string{
+  getNumberOfBoxes(event: any): Array<number>{
     this.numberOfBoxes = event.target.value.toString();
-    if (this.boxes.length >= 1){
-      this.boxes = [];
-    }
-    for (let i = 1; i <= parseInt(this.numberOfBoxes); i++){
-      this.boxes.push(i);
-    }
-    return this.numberOfBoxes;
+    return this.boxes = new Array(Number(this.numberOfBoxes));
   }
 
   getItemStatus(event: any): void{
