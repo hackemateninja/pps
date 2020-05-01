@@ -4,7 +4,7 @@
     <nav aria-label="breadcrumb" role="navigation">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a routerLink="/dashboard">Home</a></li>
-        <li class="breadcrumb-item"><a (click)="goBack()">Orders</a></li>
+        <li class="breadcrumb-item"><a [routerLink]="['/dashboard/store', store]">Orders</a></li>
         <li class="breadcrumb-item active" aria-current="page">Order Details</li>
       </ol>
     </nav>

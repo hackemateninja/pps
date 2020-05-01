@@ -31,10 +31,6 @@ export class OrderComponent implements OnInit {
   }
 
 
-  goBack(): void{
-    window.history.back();
-  }
-
   getNumberOfBoxes(event: any): Array<number>{
     this.numberOfBoxes = event.target.value.toString();
     return this.boxes = new Array(Number(this.numberOfBoxes));

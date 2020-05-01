@@ -18,7 +18,6 @@ export class PrintComponent implements OnInit {
   shippingGroup: any;
   commerceItems: any;
 
-  showContent = true;
 
   constructor(private order: GetStoresService, private route: ActivatedRoute,) { }
 
@@ -26,13 +25,6 @@ export class PrintComponent implements OnInit {
     this.getOrder(this.getOrderId(), this.getStoreId());
   }
 
-  handleShow(): void{
-    this.showContent = true;
-  }
-
-  goBack(): void{
-    window.history.back();
-  }
 
   getStoreId(): number {
     this.route.paramMap.subscribe(params => {
