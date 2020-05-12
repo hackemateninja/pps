@@ -21,6 +21,7 @@ export class OrderComponent implements OnInit {
   boxesSelect = [1];
   itemStatus: string;
 
+  showUPCModal = false;
   idCommerceItem = null;
 
 
@@ -40,9 +41,12 @@ export class OrderComponent implements OnInit {
   }
 
   getItemStatus(event: any): void{
-    this.itemStatus = event.target.value;
-    console.log(typeof this.itemStatus, this.itemStatus);
-    this.idCommerceItem = this.itemStatus;
+    this.itemStatus = event.target.text;
+    if (this.itemStatus.toLowerCase() === "shipped"){
+      this.idCommerceItem = event.target.value;
+      this.showUPCModal = true;
+    }
+    console.log(this.itemStatus, this.idCommerceItem)
   }
 
   getStoreId(): number {

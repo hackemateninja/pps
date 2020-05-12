@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 
 
 @Component({
@@ -12,12 +12,14 @@ export class UpcModalComponent implements OnInit {
   alertMessage = "";
   alertType = "";
   @Input() upc: object;
-  validUpc = false;
+  @Input() showModal: boolean;
+  @Output() validUpc = false;
   valueUPC = "";
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
   validateUPC(){
