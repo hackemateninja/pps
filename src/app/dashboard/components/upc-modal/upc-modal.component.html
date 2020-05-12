@@ -16,16 +16,11 @@
           class="form-control modal-input"
           [(ngModel)]="valueUPC"
           placeholder="Validate UPC"
+          (keyup.enter)="validateUPC()"
         >
       </div>
     </div>
     <div class="modal-footer">
-      <button
-        type="button"
-        class="btn btn-secondary"
-        (click)="closeModal(showModal)">
-        close
-      </button>
       <button
         type="button"
         class="btn btn-info"
