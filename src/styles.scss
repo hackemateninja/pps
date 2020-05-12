@@ -18,3 +18,19 @@ a{
   margin: 20px;
   width: 100%;
 }
+.custom-modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+.custom-modal-content{
+  background: white;
+  width: 350px;
+}

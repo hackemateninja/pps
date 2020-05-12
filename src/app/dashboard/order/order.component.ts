@@ -24,6 +24,8 @@ export class OrderComponent implements OnInit {
   showUPCModal = false;
   idCommerceItem = null;
 
+  showBoxesModal = false;
+
 
   constructor(
     private order: GetStoresService,

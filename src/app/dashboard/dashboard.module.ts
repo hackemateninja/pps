@@ -14,6 +14,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { PrintorderlabelComponent } from './components/printorderlabel/printorderlabel.component';
 import { TitleContainerComponent } from './components/title-container/title-container.component';
 import { UpcModalComponent } from './components/upc-modal/upc-modal.component';
+import { BoxesModalComponent } from './components/boxes-modal/boxes-modal.component';
 
 
 
@@ -26,6 +27,7 @@ import { UpcModalComponent } from './components/upc-modal/upc-modal.component';
     PrintorderlabelComponent,
     TitleContainerComponent,
     UpcModalComponent,
+    BoxesModalComponent,
   ],
   imports: [
     CommonModule,

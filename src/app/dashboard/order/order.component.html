@@ -15,6 +15,8 @@
       [upc]="commerceItems[idCommerceItem]">
     </app-upc-modal>
 
+    <app-boxes-modal [showModal]="showBoxesModal"></app-boxes-modal>
+
     <app-printorderlabel
       [orderInfo]="orderInfo"
       [orderNumber]="orderNumber"
@@ -156,6 +158,7 @@
                 type="button"
                 data-toggle="modal"
                 data-target="#exampleModal"
+                (click)="showBoxesModal=true"
                 class="add-box-button">
                 <i class="fas fa-plus"></i>
               </button>

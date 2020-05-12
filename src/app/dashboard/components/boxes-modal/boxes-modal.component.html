@@ -6,7 +6,7 @@
     </div>
 
     <div class="modal-header">
-      <h5 class="modal-title">Validate Upc</h5>
+      <h5 class="modal-title">Number of boxes</h5>
     </div>
     <div class="modal-body form-group">
       <div class="input-group">
@@ -14,9 +14,9 @@
           <input
             type="text"
             class="form-control-plaintext modal-input"
-            [(ngModel)]="valueUPC"
-            placeholder="Validate UPC"
-            (keyup.enter)="validateUPC()"
+            [(ngModel)]="numberOfBoxes"
+            placeholder="enter number of boxes"
+            (keyup.enter)="setBoxes()"
             #myInput
           />
         </label>
@@ -27,7 +27,7 @@
       <button
         type="button"
         class="btn btn-info"
-        (click)="validateUPC()">
+        (click)="setBoxes()">
         Validate
       </button>
     </div>
