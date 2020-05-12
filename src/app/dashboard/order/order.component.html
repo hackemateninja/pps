@@ -15,7 +15,9 @@
       [upc]="commerceItems[idCommerceItem]">
     </app-upc-modal>
 
-    <app-boxes-modal [showModal]="showBoxesModal"></app-boxes-modal>
+    <app-boxes-modal
+      (closeModalEmmit)="showBoxesModal = false"
+      [showModal]="showBoxesModal"></app-boxes-modal>
 
     <app-printorderlabel
       [orderInfo]="orderInfo"
