@@ -12,12 +12,13 @@
       <div class="input-group">
         <input
           type="text"
-          name="UPC"
-          class="form-control modal-input"
+          class="modal-input"
           [(ngModel)]="valueUPC"
           placeholder="Validate UPC"
           (keyup.enter)="validateUPC()"
+          #myInput
         >
+        {{ myInput.focus() }}
       </div>
     </div>
     <div class="modal-footer">
