@@ -1,6 +1,6 @@
 <div class="main">
   <div class="container">
-    <app-modal></app-modal>
+
     <nav aria-label="breadcrumb" role="navigation">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a routerLink="/dashboard">Home</a></li>
@@ -8,6 +8,10 @@
         <li class="breadcrumb-item active" aria-current="page">Order Details</li>
       </ol>
     </nav>
+
+    <app-upc-modal
+      [upc]="commerceItems[idCommerceItem]">
+    </app-upc-modal>
 
     <app-printorderlabel
       [orderInfo]="orderInfo"
@@ -108,17 +112,25 @@
           </tr>
           </thead>
           <tbody >
-          <tr *ngFor="let commerceItem of commerceItems">
+          <tr *ngFor="let commerceItem of commerceItems; index as idx">
             <td class="text-center">{{commerceItem.upcs}}</td>
             <td>{{commerceItem.fulfillmentStore}}</td>
-            <td></td>
+            <td>
+
+            </td>
             <td></td>
             <td>{{commerceItem.productDescription}}</td>
             <td>SHP : {{commerceItem.quantity}}</td>
             <td class="td-actions text-right">
               <select (click)="getItemStatus($event)" class="form-control form-control-sm">
                 <option>Select your option</option>
-                <option value="1">Shipped</option>
+                <option
+                  data-toggle="modal"
+                  data-target="#upcModal"
+                  [value]="idx"
+                >
+                  Shipped
+                </option>
                 <option value="2">No stock</option>
               </select>
             </td>
@@ -127,7 +139,11 @@
                 <option *ngIf="boxes.length===0">Select box</option>
                 <option *ngFor="let box of boxes; index as idx">{{idx+1}}</option>
               </select>
-              <button class="add-box-button">
+              <button
+                type="button"
+                data-toggle="modal"
+                data-target="#exampleModal"
+                class="add-box-button">
                 <i class="fas fa-plus"></i>
               </button>
             </td>

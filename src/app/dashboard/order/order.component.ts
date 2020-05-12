@@ -21,6 +21,9 @@ export class OrderComponent implements OnInit {
   boxesSelect = [1];
   itemStatus: string;
 
+  idCommerceItem = null;
+
+
   constructor(
     private order: GetStoresService,
     private route: ActivatedRoute,
@@ -37,11 +40,9 @@ export class OrderComponent implements OnInit {
   }
 
   getItemStatus(event: any): void{
-    this.itemStatus = event.target.value.toString();
-    console.log(typeof this.itemStatus);
-    if (this.itemStatus === "1"){
-
-    }
+    this.itemStatus = event.target.value;
+    console.log(typeof this.itemStatus, this.itemStatus);
+    this.idCommerceItem = this.itemStatus;
   }
 
   getStoreId(): number {

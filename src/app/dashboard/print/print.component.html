@@ -1,11 +1,4 @@
 
-<app-printorderlabel
-  [orderInfo]="orderInfo"
-  [orderNumber]="orderNumber"
-  [orderState]="orderState"
-  [shippingGroup]="shippingGroup"
-  [submittedTime]="submittedTime"
-></app-printorderlabel>
 <div class="main">
   <div class="container">
     <ol class="breadcrumb">
@@ -111,15 +104,6 @@
           ngxPrint>
           <i class="fas fa-print"></i>
           Print
-        </button>
-        <button
-          type="button"
-          class="btn btn-danger"
-          printSectionId="print-section"
-          [useExistingCss]="true"
-          ngxPrint>
-          <i class="fas fa-print"></i>
-          Print Shipping label
         </button>
       </div>
     </div>

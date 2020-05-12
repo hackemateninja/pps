@@ -11,9 +11,9 @@ import {GetStoresService} from '../services/get-stores.service';
 import {NgxPrintModule} from 'ngx-print';
 import {NgxBarcodeModule} from 'ngx-barcode';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { ModalComponent } from './components/modal/modal.component';
 import { PrintorderlabelComponent } from './components/printorderlabel/printorderlabel.component';
 import { TitleContainerComponent } from './components/title-container/title-container.component';
+import { UpcModalComponent } from './components/upc-modal/upc-modal.component';
 
 
 
@@ -23,9 +23,9 @@ import { TitleContainerComponent } from './components/title-container/title-cont
     StoreComponent,
     OrderComponent,
     PrintComponent,
-    ModalComponent,
     PrintorderlabelComponent,
     TitleContainerComponent,
+    UpcModalComponent,
   ],
   imports: [
     CommonModule,
