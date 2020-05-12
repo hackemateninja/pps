@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 
 @Component({
@@ -13,6 +13,7 @@ export class UpcModalComponent implements OnInit {
   alertType = "";
   @Input() upc: object;
   @Input() showModal: boolean;
+  @Output() closeModalEmmit= new EventEmitter<boolean>();
   @Output() validUpc = false;
   valueUPC = "";
 
@@ -22,6 +23,10 @@ export class UpcModalComponent implements OnInit {
 
   }
 
+  closeModal(option: boolean) {
+    this.closeModalEmmit.emit(!option)
+  }
+
   validateUPC(){
     // @ts-ignore
     const {upcs} = this.upc;
@@ -29,6 +34,11 @@ export class UpcModalComponent implements OnInit {
       this.showAlert = true;
       this.alertMessage = "Validate succes";
       this.alertType = "success";
+      setTimeout(()=>{
+        this.valueUPC = "";
+        this.showAlert = false
+        this.closeModal(this.showModal)
+      },1000)
       return this.validUpc = true;
     }else {
       this.showAlert = true;
