@@ -7,24 +7,25 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class BoxesModalComponent implements OnInit {
 
-  @Input() showModal: boolean;
-  numberOfBoxes: number;
   alertType: string;
   alertMessage: string;
   showAlert = false;
+  numberOfBoxes: string;
   @Output() closeModalEmmit = new EventEmitter<boolean>();
+  @Output() numberBoxesEmmit = new EventEmitter<string>()
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  closeModal(option: boolean){
-    this.closeModalEmmit.emit(option);
+  closeModal(){
+    this.closeModalEmmit.emit();
   }
 
   setBoxes(){
-    this.closeModal(this.showModal);
+    console.log(this.numberBoxesEmmit.emit(this.numberOfBoxes))
+    return this.numberBoxesEmmit.emit(this.numberOfBoxes);
   }
 
 }

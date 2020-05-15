@@ -1,11 +1,17 @@
-<div class="main">
+<!--<div class="main">
   <div class="container">
 
     <nav aria-label="breadcrumb" role="navigation">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="/dashboard">Home</a></li>
-        <li class="breadcrumb-item"><a [routerLink]="['/dashboard/store', store]">Orders</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Order Details</li>
+        <li class="breadcrumb-item">
+          <a routerLink="/dashboard">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a [routerLink]="['/dashboard/store', store]">Orders</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Order Details
+        </li>
       </ol>
     </nav>
 
@@ -17,7 +23,7 @@
 
     <app-boxes-modal
       (closeModalEmmit)="showBoxesModal = false"
-      [showModal]="showBoxesModal"></app-boxes-modal>
+      *ngIf="showBoxesModal"></app-boxes-modal>
 
     <app-printorderlabel
       [orderInfo]="orderInfo"
@@ -201,3 +207,4 @@
   </div>
 </div>
 
+-->

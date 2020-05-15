@@ -26,6 +26,8 @@ export class OrderComponent implements OnInit {
 
   showBoxesModal = false;
 
+  nBoxes: number;
+
 
   constructor(
     private order: GetStoresService,

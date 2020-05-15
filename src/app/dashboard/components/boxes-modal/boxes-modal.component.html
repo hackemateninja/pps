@@ -1,5 +1,4 @@
-
-<div class="custom-modal" *ngIf="showModal">
+<div class="custom-modal">
   <div class="custom-modal-content">
     <div class="alert alert-{{alertType}}" role="alert" *ngIf="showAlert">
       {{alertMessage}}
@@ -27,7 +26,7 @@
       <button
         type="button"
         class="btn btn-normal"
-        (click)="closeModal(showModal)">
+        (click)="closeModal()">
         Close
       </button>
       <button
